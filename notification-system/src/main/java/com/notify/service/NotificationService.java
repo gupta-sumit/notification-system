@@ -1,10 +1,11 @@
 package com.notify.service;
 
-import com.notify.domain.Notification;
+import com.notify.domain.NotificationMessage;
 
-public interface NotificationService<T extends Notification> {
+public interface NotificationService {
 
-	public void validate(T notification);
+	public void validate(NotificationMessage notification);
 	
-	public void send(T notification);
+	public void send(NotificationMessage notification);
+	
 }
