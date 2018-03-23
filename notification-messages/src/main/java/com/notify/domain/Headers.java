@@ -1,5 +1,7 @@
 package com.notify.domain;
 
+import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
@@ -40,6 +42,11 @@ public class Headers {
 	}
 	public void setNotificationType(NotificationType notificationType) {
 		this.notificationType = notificationType;
+	}
+	@Override
+	public String toString() {
+		return "Headers [notificationType=" + notificationType + ", from=" + from + ", to=" + Arrays.toString(to)
+				+ ", subject=" + subject + "]";
 	}
 	
 	
