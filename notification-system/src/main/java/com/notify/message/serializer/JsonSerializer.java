@@ -6,9 +6,10 @@ import org.apache.kafka.common.serialization.Serializer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.notify.domain.NotificationMessage;
 
-public class JsonSerializer implements Serializer<NotificationMessage>{
+import event.api.Event;
+
+public class JsonSerializer implements Serializer<Event<?>>{
 
 	@Override
 	public void configure(Map<String, ?> configs, boolean isKey) {
@@ -16,7 +17,7 @@ public class JsonSerializer implements Serializer<NotificationMessage>{
 	}
 
 	@Override
-	public byte[] serialize(String topic, NotificationMessage data) {
+	public byte[] serialize(String topic, Event<?> data) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			return mapper.writeValueAsString(data).getBytes();

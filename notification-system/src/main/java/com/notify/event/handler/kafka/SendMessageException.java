@@ -1,10 +1,7 @@
-package com.notify.message.sender.kafka;
+package com.notify.event.handler.kafka;
 
 public class SendMessageException extends RuntimeException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public SendMessageException() {

@@ -1,4 +1,4 @@
-package com.notify;
+package com.notify.application.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,16 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-import com.notify.domain.NotificationMessage;
 import com.notify.message.serializer.JsonSerializer;
+
+import event.api.Event;
 
 @ConfigurationProperties(prefix = "app.kafka")
 @Configuration
 public class KafkaConfig {
 
 	private String bootstrapServers;
+	
 
 	@Bean
 	public Map<String, Object> producerConfigs() {
@@ -33,7 +35,7 @@ public class KafkaConfig {
 	}
 
 	@Bean
-	public ProducerFactory<String, NotificationMessage> producerFactory() {
+	public ProducerFactory<String, Event<?>> producerFactory() {
 		return new DefaultKafkaProducerFactory<>(producerConfigs());
 	}
 
@@ -46,7 +48,7 @@ public class KafkaConfig {
 	}
 
 	@Bean
-	public KafkaTemplate<String, NotificationMessage> kafkaTemplate() {
+	public KafkaTemplate<String, Event<?>> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
 	}
 

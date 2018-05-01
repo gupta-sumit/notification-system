@@ -2,9 +2,6 @@ package com.notify.message.serializer;
 
 public class MessageSerializationException extends RuntimeException{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6760858136003579144L;
 
 	public MessageSerializationException() {

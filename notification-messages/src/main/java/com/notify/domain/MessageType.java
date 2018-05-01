@@ -1,6 +1,6 @@
 package com.notify.domain;
 
-public enum NotificationType {
+public enum MessageType {
 
 	EMAIL, SLACK
 
